@@ -1,0 +1,89 @@
+package Trees;
+
+import java.util.*;
+
+public class Average_Of_Levels {
+	static class TreeNode {
+		int data;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode(int data) {
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+
+	}
+
+	static int idx = -1;
+
+	public static TreeNode create(int arr[]) {
+		idx++;
+		if (idx > arr.length || arr[idx] == -1) {
+			return null;
+		}
+		TreeNode newNode = new TreeNode(arr[idx]);
+		newNode.left = create(arr);
+		newNode.right = create(arr);
+		return newNode;
+	}
+	
+	public static void print(TreeNode root) {
+		if(root == null) {
+			return;
+		}
+		System.out.print(root.data+" ");
+		print(root.left);
+		print(root.right);
+	}
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter The Size :");
+		int size = in.nextInt();
+		int[] arr = new int[size];
+		System.out.println("Enter The Elements");
+		for (int i = 0; i < size; i++) {
+			arr[i] = in.nextInt();
+		}
+		TreeNode root = create(arr);
+		System.out.println("The Tree ");
+		print(root);
+		System.out.println();
+		List<Double> average = average_levels(root);
+		for (double num : average) {
+			System.out.print(num + " ");
+		}
+		in.close();
+
+	}
+	
+	public static List<Double> average_levels(TreeNode root){
+		List<Double> result = new ArrayList<>();
+		if(root == null) {
+			return result;
+		}
+		Queue <TreeNode> Q = new LinkedList<>();
+		Q.add(root);
+		while(!Q.isEmpty()) {
+			int size = Q.size();
+			double sum = 0;
+			for(int i  = 0;i<size;i++) {
+				TreeNode curr = Q.poll();
+				sum += curr.data;
+				if(curr.left != null) {
+					Q.add(curr.left);
+				}
+				if(curr.right != null) {
+					Q.add(curr.right);
+				}
+			}
+			double average = sum / size;
+			result.add(average);
+		}
+		return result;
+		
+	}
+
+}
