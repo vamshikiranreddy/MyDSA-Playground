@@ -1,5 +1,4 @@
 package Arrays;
-
 public class Container_With_MostWater {
 
     public static int maxArea(int[] height) {
