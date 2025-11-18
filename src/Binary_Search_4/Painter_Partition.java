@@ -3,7 +3,7 @@ package Binary_Search_4;
 public class Painter_Partition {
 
     public static void main(String[] args) {
-        int[] boards = {10, 20, 30, 40}; // length of each board
+        int[] boards = {10, 20, 30, 45}; // length of each board
         int painters = 2; // number of painters
 
         int result = partition(boards, painters);
