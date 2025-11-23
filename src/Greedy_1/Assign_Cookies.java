@@ -5,7 +5,7 @@ import java.util.*;
 public class Assign_Cookies {
 
 	public static void main(String[] args) {
-		int[] g = { 1, 2, 3 }; // greed factors of children
+		int[] g = { 1, 2,4  }; // greed factors of children
 		int[] s = { 1, 1 }; // sizes of cookies
 
 		int result = findContentChildren(g, s); // method call
