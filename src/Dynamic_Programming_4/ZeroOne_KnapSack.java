@@ -14,6 +14,9 @@ public class ZeroOne_KnapSack {
 		// Call tabulation method
 		int tabAns = knapSackTab(W, wt, val);
 		System.out.println("Tabulation Result:  " + tabAns);
+		
+		int OptAns = knapSackOpt(W, wt, val);
+		System.out.println("Space Optimized Result:  " + OptAns);
 
 	}
 
@@ -60,5 +63,27 @@ public class ZeroOne_KnapSack {
 			}
 		}
 		return Dp[n - 1][W];
+	}
+	
+	private static int knapSackOpt(int W, int[] wt, int[] val) {
+		int n = wt.length;
+		int[]prev = new int[W + 1];
+		for (int w = 0; w <= W; w++) {
+			if (wt[0] <= W)
+				prev[w] = val[0];
+		}
+		for (int i = 1; i < n; i++) {
+			int[] curr = new int[W + 1];
+			for (int w = 1; w <= W; w++) {
+				int nottake = prev [w];
+				int take = Integer.MIN_VALUE;
+				if (wt[i] <= w) {
+					take = val[i] + curr[w - wt[i]];
+				}
+				curr[w] = Math.max(nottake, take);
+			}
+			prev = curr;
+		}
+		return prev[W];
 	}
 }
