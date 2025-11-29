@@ -17,7 +17,7 @@ public class RodCutting {
 		int[][] dp = new int[n][N + 1];
 
 		for (int[] row : dp)
-			java.util.Arrays.fill(row, -1);
+			Arrays.fill(row, -1);
 
 		return solve(n - 1, N, price, dp);
 	}
