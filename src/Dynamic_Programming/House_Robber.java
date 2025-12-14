@@ -13,7 +13,7 @@ public class House_Robber {
 			return Solver(n - 1, arr);
 		}
 
-		 int Solver(int idx, int[] arr) {
+		int Solver(int idx, int[] arr) {
 			if (idx == 0)
 				return arr[0];
 			if (idx < 0)
@@ -33,7 +33,9 @@ public class House_Robber {
 			Dp[0] = arr[0];
 			Dp[1] = Math.max(arr[0], arr[1]);
 			for (int i = 2; i < n; i++) {
-				Dp[i] = Math.max(arr[i] + Dp[i - 2], Dp[i - 1]);
+				int pick = arr[i] + Dp[i - 2];
+				int notpick = Dp[i - 1];
+				Dp[i] = Math.max(pick, notpick);
 			}
 			return Dp[n - 1];
 		}
