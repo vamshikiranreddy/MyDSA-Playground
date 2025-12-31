@@ -12,7 +12,8 @@ public class Fruit_Into_Baskets {
 		System.out.println("Optimal (HashMap)       : " + optimal(fruits));
 		System.out.println("Most Optimal (2 vars)   : " + mostOptimal(fruits));
 	}
-
+	
+	//O(2N)
 	private static int optimal(int[] fruits) {
 		Map<Integer, Integer> freqMap = new HashMap<>();
 		int n = fruits.length;
@@ -33,7 +34,7 @@ public class Fruit_Into_Baskets {
 		}
 		return max;
 	}
-
+	//O(N)
 	private static int mostOptimal(int[] fruits) {
 		Map<Integer, Integer> freqMap = new HashMap<>();
 		int n = fruits.length;
