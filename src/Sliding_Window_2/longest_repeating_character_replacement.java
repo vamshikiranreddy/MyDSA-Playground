@@ -2,8 +2,8 @@ package Sliding_Window_2;
 
 public class longest_repeating_character_replacement {
 	public static void main(String[] args) {
-		String s = "AABABBA";
-		int k = 1;
+		String s = "ABAB";
+		int k = 2;
 		// Output: 4
 		System.out.println(characterReplacement(s, k));
 	}
