@@ -39,7 +39,7 @@ public class Infix_To_PostFix {
 				// removing (
 				st.pop();
 			} else {
-				while (!st.isEmpty() && ComparePriority(st.peek()) >= ComparePriority(ch)) {
+				while (!st.isEmpty() && ComparePriority(ch) <= ComparePriority(st.peek())) {
 					sb.append(st.pop());
 				}
 				st.push(ch);
