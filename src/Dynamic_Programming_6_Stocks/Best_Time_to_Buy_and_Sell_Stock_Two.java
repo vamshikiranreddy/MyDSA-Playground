@@ -69,7 +69,7 @@ public class Best_Time_to_Buy_and_Sell_Stock_Two {
 	}
 
 	private static int recursion(int idx, int buy, int[] prices, int[][] Dp) {
-		// buy == 1 (can buy) || buy == 0 (can't buy already own's a stock
+		// buy == 1 (can buy) || buy == 0 (can't buy already own's a stock)
 		if (idx == prices.length)
 			return 0;
 		if (Dp[idx][buy] != -1)
