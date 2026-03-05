@@ -1,6 +1,7 @@
 package Stack_And_Queue_3;
 import java.util.*;
 public class Next_Greater_Non_circular {
+	// BRUTE Force use two for loops
 	private static int[] Next_Greater_Num(int[] array){
 		int n = array.length;
 		Stack <Integer> stack = new Stack<>();
