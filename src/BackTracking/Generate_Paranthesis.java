@@ -27,12 +27,13 @@ public class Generate_Paranthesis {
 			result.add(str.toString());
 			return;
 		}
-		//Add Closing
+		
 		if(openCnt < n) {
 			str.append('(');
 			recursiveBacktrack(n,str,result,openCnt + 1,closeCnt);
 			str.deleteCharAt(str.length()-1);
 		}
+		//Add Closing
 		if(closeCnt < openCnt) {
 			str.append(')');
 			recursiveBacktrack(n,str,result,openCnt,closeCnt + 1);
