@@ -3,22 +3,20 @@ package Linked_List_3;
 import java.util.*;
 
 public class LRU_Cache {
+	static class ListNode {
+		int key;
+		int value;
+		ListNode prev;
+		ListNode next;
+
+		ListNode(int key, int value) {
+			this.key = key;
+			this.value = value;
+			this.prev = this.next = null;
+		}
+	}
 
 	static class LRUCache {
-
-		static class ListNode {
-			int key;
-			int value;
-			ListNode prev;
-			ListNode next;
-
-			ListNode(int key, int value) {
-				this.key = key;
-				this.value = value;
-				this.prev = this.next = null;
-			}
-		}
-
 		int capacity;
 		Map<Integer, ListNode> CacheMap;
 		ListNode head = new ListNode(-1, -1);
